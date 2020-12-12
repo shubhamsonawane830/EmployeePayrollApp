@@ -186,15 +186,19 @@ select {
     .form {
         margin-top: 10px;
     }
+
     .row {
         flex-direction: column;
     }
+
     .uploadButton {
         justify-content: flex-start;
     }
+
     .profile-radio-button {
         flex-flow: wrap;
     }
+
     .submit-reset {
         width: 100%;
         display: flex;
@@ -203,9 +207,11 @@ select {
         justify-content: space-between;
         margin-bottom: 20px;
     }
+
     .submitButton {
         margin: 0;
     }
+
     .buttonParent {
         flex-direction: column-reverse;
         align-items: flex-start;
