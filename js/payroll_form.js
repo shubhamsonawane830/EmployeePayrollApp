@@ -1,8 +1,26 @@
-const salary = document.querySelector('#salary');
-const output = document.querySelector('.salary-output');
-output.textContent = salary.value;
-salary.addEventListener('input', function(){
+window.addEventListener('DOMContentLoaded', (event) => {
+    const name = document.querySelector('#name');
+    const textError = document.querySelector('.text-error');
+    name.addEventListener('input', function() {
+        if(name.value.length == 0) {
+            textError.textContent = "";
+            return;
+        }
+        try {
+            (new EmployeePayrollData()).name = name.value;;
+            textError.textContent = "";
+        } catch (e) {
+            textError.textContent = e;
+        }
+    });
+    
+    const salary = document.querySelector('#salary');
+    const output = document.querySelector('.salary-output');
     output.textContent = salary.value;
+    salary.addEventListener('input', function(){
+        output.textContent = salary.value;
+    });
+     
 });
 
 document.getElementById("submit").onclick = function() {
@@ -15,4 +33,3 @@ document.getElementById("submit").onclick = function() {
     employee.note = document.getElementById("notes").value;
     employee.startDate = new Date(parseInt(document.getElementById("year").value), parseInt(document.getElementById("month").value), parseInt(document.getElementById("day").value));
 };
-
