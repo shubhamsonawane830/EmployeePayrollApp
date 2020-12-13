@@ -1,15 +1,5 @@
-class EmployeePayrollData {
 
-    constructor(...params) {
-        this.id = params[0];
-        this.name = params[1];
-        this.profilePic = params[2];
-        this.gender = params[3];
-        this.department = params[4];
-        this.salary = params[5];
-        this.startDate = params[6];
-        this.note = params[7];
-    }
+class EmployeePayrollData {
 
     //getter and setter method
     get id() { return this._id; }
@@ -22,7 +12,7 @@ class EmployeePayrollData {
         let nameRegex=RegExp('^[A-Z]{1}[a-zA-Z\\s]{2,}$');
         if(nameRegex.test(name))
             this._name=name;
-        else throw ' Incorrect Name ';
+        else throw ' Name is Incorrect ';
     }
 
     get profilePic() { return this._profilePic; }
@@ -66,4 +56,3 @@ class EmployeePayrollData {
             ", salary=" + this.salary + ", startDate=" + empDate + ", note=" + this.note;
     }
 }
-
