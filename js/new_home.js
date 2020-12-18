@@ -16,7 +16,7 @@ const createInnerHtml = () => {
     </tr>
     <tr>
        <td><img class="profile" src="..assets/profile-images/Ellipse -2.png" alt=""></td>
-       <td>Narayan Mahadevan</td>
+       <td>Shubham Sonawane</td>
        <td>Male</td>
        <td><div class='dept-label'>HR</div><div class='dept-label'>Finance</div></td>
        <td>3000000</td>
