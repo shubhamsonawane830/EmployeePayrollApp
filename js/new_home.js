@@ -3,6 +3,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     empPayrollList = getEmployeePayrollDataFromStorage();
     document.querySelector(".emp-count").textContent = empPayrollList.length;
     createInnerHtml();
+    localStorage.removeItem('editEmp');
 });
 
 const getEmployeePayrollDataFromStorage = () => {
@@ -48,8 +49,7 @@ const remove = (node) => {
     if (!empPayrollData) return;
     const index = empPayrollList.map(empData => empData._name).indexOf(empPayrollData._name);
     empPayrollList.splice(index, 1);
-    l
-ocalStorage.setItem("EmployeePayrollList", JSON.stringify(empPayrollList));
+    localStorage.setItem("EmployeePayrollList", JSON.stringify(empPayrollList));
     document.querySelector(".emp-count").textContent = empPayrollList.length;
     createInnerHtml();
 }
