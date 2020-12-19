@@ -7,7 +7,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
             return;
         }
         try {
-            (new EmployeePayrollData()).name = name.value;
+            (new EmployeePayrollData()).name = name.value;;
             textError.textContent = "";
         } catch (e) {
             textError.textContent = e;
@@ -21,6 +21,19 @@ window.addEventListener('DOMContentLoaded', (event) => {
         output.textContent = salary.value;
     });
      
+    const startDate = document.querySelector('#date');
+    startDate.addEventListener("input", function() {
+        const day = document.getElementById("day").value;
+        const month = document.getElementById("month").value;
+        const year = document.getElementById("year").value;
+        const dateError = document.querySelector(".date-error");
+        try {
+            (new EmployeePayrollData()).startDate = new Date(parseInt(year), parseInt(month) - 1, parseInt(day));
+            dateError.textContent = "";
+        } catch (e) {
+            dateError.textContent = e;
+        }
+    });
 });
 
 const save = () => {
@@ -40,7 +53,7 @@ function createAndUpdateStorage(employeePayrollData) {
         employeePayrollList = [employeePayrollData]
     }
     alert(employeePayrollList.toString());
-    localStorage.setItem("EmployeePayrollList", JSON.stringyfy(employeePayrollList))
+    localStorage.setItem("EmployeePayrollList", JSON.stringify(employeePayrollList))
 }
 
 const createEmployeePayroll = () => {
@@ -57,7 +70,7 @@ const createEmployeePayroll = () => {
     employeePayrollData.salary = getInputValueById('#salary');
     employeePayrollData.note = getInputValueById('#notes');
     let date = getInputValueById('#day')+" "+getInputValueById('#month')+" "+getInputValueById('#year');
-    employeePayrollData.date = Date.parse(date);
+    employeePayrollData.startDate = date;
     alert(employeePayrollData.toString());
     return employeePayrollData;
 }
@@ -73,6 +86,11 @@ const getSelectedValues = (propertyValue) => {
 
 const getInputValueById = (id) => {
     let value = document.querySelector(id).value;
+    return value;
+}
+
+const getInputElementValue = (id) => {
+    let value = document.getElementById(id).value;
     return value;
 }
 
@@ -102,5 +120,7 @@ const setTextValue = (id, value) => {
 
 const setValue = (id, value) => {
     const element = document.querySelector(id);
-    element.value = value;
+    element.value = value
+;
 }
+
